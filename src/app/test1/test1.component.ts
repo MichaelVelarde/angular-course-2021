@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+
 @Component({
-  selector: 'app-test1',
+  selector: 'michael-comp',
   templateUrl: './test1.component.html',
   styleUrls: ['./test1.component.css']
 })
@@ -16,7 +17,7 @@ export class Test1Component {
     console.log('EVENT CLICK:', event);
 
     this.sendData.emit({
-      name: 'michael',
+      name: 'ricardo',
       status: 'busy'
     });
   }
