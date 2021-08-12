@@ -16,4 +16,7 @@ export class AppComponent {
   printDataMichaelComp(event: any) {
     console.log('RICARDO COMP:', event);
   }
+  printData(event){
+    console.log('CHILD COMP SEND DATA: ', event);
+  }
 }
