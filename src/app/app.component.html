@@ -1,15 +1,27 @@
-<p>asdasd</p>
-
-<michael-comp [status]="myStatus" (onSendData)="printDataMichaelComp($event)">
-</michael-comp>
-
-<app-test2 name="Michael" lastName="Velarde" (onSendData)="printData($event)">
-</app-test2>
+<p>App Component</p>
  
 <input type = "text" [(ngModel)]= "myStatus" >
 <button (click)= "sw = !sw">show Test3 </button>
-<div *ngIf="sw">
+<div [hidden]="sw">
 <app-test3
 [name]="myStatus">
    </app-test3>
 </div>
+
+<ul>
+  <li *ngFor="let item of ['first' , 'Second', 'third']; let i = index;">
+    
+  <michael-comp *ngIf="item !== 'first'"  [status]="item" (onSendData)="printDataMichaelComp($event)">
+  </michael-comp>
+  </li>
+</ul>
+
+<input type="text" [(ngModel)] ="color">
+<ul [ngSwitch] = "color">
+  <li *ngSwitchCase = "'red'"><app-test2 name="Michael" lastName="Velarde" (onSendData)="printData($event)">
+  </app-test2>
+  </li>
+  <li *ngSwitchCase = "'yellow'">yellow</li>
+  <li *ngSwitchCase = "'green'">green</li>
+  <li *ngSwitchDefault>Default Orange</li>
+</ul>
