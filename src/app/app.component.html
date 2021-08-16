@@ -51,3 +51,15 @@
   'est2': color ==='hola1',
   'est3': color ==='hola2'
 }" >My div with class</div>
+<p>Tarea: </p>
+
+<ul>
+<li *ngFor="let item of [
+{name: 'juan', lastName: 'gutierrez'},
+{name: 'maria', lastName: 'quiroz'},
+{name: 'marco', lastName: 'paredes'},
+{name: 'pedro', lastName: 'mamani'}
+]">
+{{item.name}} {{item.lastName}}
+</li>
+</ul>
