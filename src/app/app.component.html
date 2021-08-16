@@ -25,3 +25,29 @@
   <li *ngSwitchCase = "'green'">green</li>
   <li *ngSwitchDefault>Default Orange</li>
 </ul>
+<app-test2 name="Michael" lastName= "Velarde" (onSendData)= "printData($event)">
+<p>Mi propio contenido </p>
+<p>Mi propio contenido </p>
+<button>mi boton</button>
+</app-test2>
+
+<button (click)= 'sw = !sw'>Show NG</button>
+<ng-container *ngIf="sw" style="margin: 30px">
+<p>NG Container</p>
+</ng-container>
+
+<input type="text" [(ngModel)]="color">
+<div [style.fontSize.px]= "color">
+  My div with styles
+</div>
+
+<p [ngStyle]="{'background' : color, 'border': '5px gray solid'}">
+  Hola p with ng Style
+</p>
+
+<div [class.est1]="color === 'hola'" >My div with class</div>
+<div [ngClass]="{
+  'est1': color ==='hola0',
+  'est2': color ==='hola1',
+  'est3': color ==='hola2'
+}" >My div with class</div>
