@@ -52,4 +52,7 @@ export class AppComponent {
   printData(event){
     console.log('CHILD COMP SEND DATA: ', event);
   }
+  test(event){
+    console.log('Mouse leave: ', event);
+  }
 }

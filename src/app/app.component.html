@@ -3,66 +3,15 @@
 <button  directive1Test (click)="person1Unsubscribe()">Uns PersonA</button>
 <p>fin del tiktok</p>
  
-<input type = "text" [(ngModel)]= "myStatus" >
-<button (click)= "sw = !sw">show Test3 </button>
-<div [hidden]="sw">
-<app-test3
-[name]="myStatus">
-   </app-test3>
+<p [directive1Test]="color"
+   (outputTest)="test($event)"
+  >Ni primera directiva de atributo </p>
+
+
+<input type="checkbox" [(ngModel)]="sw"> ngIfMichael
+
+<div *ngIfMichael="sw"  (test)="test100($event)">
+
+  <p>my own strcutural directive </p>
+
 </div>
-
-<ul>
-  <li *ngFor="let item of ['first' , 'Second', 'third']; let i = index;">
-    
-  <michael-comp *ngIf="item !== 'first'"  [status]="item" (onSendData)="printDataMichaelComp($event)">
-  </michael-comp>
-  </li>
-</ul>
-
-<input type="text" [(ngModel)] ="color">
-<ul [ngSwitch] = "color">
-  <li *ngSwitchCase = "'red'"><app-test2 name="Michael" lastName="Velarde" (onSendData)="printData($event)">
-  </app-test2>
-  </li>
-  <li *ngSwitchCase = "'yellow'">yellow</li>
-  <li *ngSwitchCase = "'green'">green</li>
-  <li *ngSwitchDefault>Default Orange</li>
-</ul>
-<app-test2 name="Michael" lastName= "Velarde" (onSendData)= "printData($event)">
-<p>Mi propio contenido </p>
-<p>Mi propio contenido </p>
-<button>mi boton</button>
-</app-test2>
-
-<button (click)= 'sw = !sw'>Show NG</button>
-<ng-container *ngIf="sw" style="margin: 30px">
-<p>NG Container</p>
-</ng-container>
-
-<input type="text" [(ngModel)]="color">
-<div [style.fontSize.px]= "color">
-  My div with styles
-</div>
-
-<p [ngStyle]="{'background' : color, 'border': '5px gray solid'}">
-  Hola p with ng Style
-</p>
-
-<div [class.est1]="color === 'hola'" >My div with class</div>
-<div [ngClass]="{
-  'est1': color ==='hola0',
-  'est2': color ==='hola1',
-  'est3': color ==='hola2'
-}" >My div with class</div>
-<p>Tarea: </p>
-
-<ul>
-<li *ngFor="let item of [
-{name: 'juan', lastName: 'gutierrez'},
-{name: 'maria', lastName: 'quiroz'},
-{name: 'marco', lastName: 'paredes'},
-{name: 'pedro', lastName: 'mamani'}
-]">
-{{item.name}} {{item.lastName}}
-</li>
-</ul>
