@@ -16,7 +16,7 @@ export class Test1Component {
     console.log('EVENT CLICK:', event);
 
     this.sendData.emit({
-      name: 'ricardo',
+      name: 'michael',
       status: 'busy'
     });
   }
