@@ -63,8 +63,8 @@ export class AppComponent {
   onShowLocalVars(){
     console.log(this.myDiv1, this.myDiv2, this.myCompMichael);
   
-    this.myCompRicardo.onClickTest();
-  
+    this.myCompMichael.onClickTest();
     this.myDiv2.nativeElement.value = 'Michael';
+    this.myDiv1.nativeElement.style="border: 10px blue solid;";
   }
 }
