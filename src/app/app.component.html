@@ -1,3 +1,37 @@
-<app-admin2></app-admin2>
-<p>Prueba nueva rama</p>
-<app-admin1></app-admin1>
+<div style="display: flex; flexDirection: row;">
+<p>2 - BITCOIN - ETHEREUM</p>
+<div> Total ETH {{totalETH}}</div>
+<div> Total BTC {{}}</div>
+</div>
+<p>Wallets</p>
+<div style="display: flex; flexDirection: row;">
+  
+<div *ngFor="let wallet of wallets">
+<app-bitcoin
+ [wallet]="wallet.wallet"
+ [name]="wallet.name"
+ [eth]="wallet.eth"
+ [btc]="wallet.btc">
+</app-bitcoin>
+</div>
+</div>
+<p>Transactions</p>
+
+<div style="display: flex; flexDirection: row;">
+  
+<div *ngFor="let transaction of transactions; let i = index">
+<div [style.background]="transaction.mineType ==='PoW' ? 'yellow' : 'green'" style="float: left; margin: 10px; padding: 10px;">
+<p>date: {{transaction.date}}</p>
+<p>from: {{transaction.from}}</p>
+<p>to: {{transaction.to}}</p>
+<p>quantity: {{transaction.quantity}}</p>
+<p>moneyType: {{transaction.moneyType | uppercase}}</p>
+<p>mineType: {{transaction.mineType}}</p>
+<p>miner: {{transaction.miner}}</p>
+<button (click)="onTransaction(i)" [disabled]="!sePuedeMinar(transaction.mined , transaction.miner, transaction.mineType)">
+mine
+</button>
+
+</div>
+</div>
+</div>
