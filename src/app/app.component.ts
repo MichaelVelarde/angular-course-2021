@@ -12,8 +12,8 @@ export class AppComponent {
   myStatus = 'my status';
 
   newDate = new Date('2019-09-07T15:50+00Z');
-  totalETH = 21;
-  totalBTC = 19;
+  totalETH = 0;
+  totalBTC = 0;
   sw = true;
 
   color: string;
@@ -142,18 +142,26 @@ export class AppComponent {
     } else return !mined;
   }
   setTotalETH() {
-    suma = 0;
-    forEach(this.wallets, function() {
-      suma += this.wallets.eth;
-    });
-    this.totalETH = suma;
+    this.totalETH = 0
+    for (let i = 0; i < this.wallets.length; i++) {
+      this.totalETH+= this.wallets[i].eth;
+    }
+    return this.totalETH;
   }
   setTotalBTC() {
-    suma = 0;
-    forEach(this.wallets, function() {
-      suma += this.wallets.btc;
-    });
-    this.totalBTC = suma;
+    this.totalBTC = 0
+    for (let i = 0; i < this.wallets.length; i++) {
+      this.totalBTC+= this.wallets[i].btc;
+    }
+    return this.totalBTC;
+  }
+  allTransactionDone(){
+    for (let i = 0; i < this.transactions.length; i++){
+      if(this.sePuedeMinar(this.transactions[i].mined, this.transactions[i].miner, this.transactions[i].mineType)){
+        return false;
+      }
+    }
+    return true;
   }
   onTransaction(i: number) {
     this.transactions[i].mined = true;

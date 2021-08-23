@@ -1,7 +1,8 @@
 <div style="display: flex; flexDirection: row;">
 <p>2 - BITCOIN - ETHEREUM</p>
-<div> Total ETH {{totalETH}}</div>
-<div> Total BTC {{}}</div>
+<div> Total ETH {{setTotalETH()}}</div>
+<p>----</p>
+<div> Total BTC {{setTotalBTC()}}</div>
 </div>
 <p>Wallets</p>
 <div style="display: flex; flexDirection: row;">
@@ -16,12 +17,12 @@
 </div>
 </div>
 <p>Transactions</p>
-
+<div *ngIf=allTransactionDone() [style.background]="'red'"> There are not transactions </div>
 <div style="display: flex; flexDirection: row;">
   
 <div *ngFor="let transaction of transactions; let i = index">
 <div [style.background]="transaction.mineType ==='PoW' ? 'yellow' : 'green'" style="float: left; margin: 10px; padding: 10px;">
-<p>date: {{transaction.date}}</p>
+<p>date: {{(transaction.date | strToDate)|date:'dd/MM/yyyy'}}</p>
 <p>from: {{transaction.from}}</p>
 <p>to: {{transaction.to}}</p>
 <p>quantity: {{transaction.quantity}}</p>
