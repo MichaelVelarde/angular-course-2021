@@ -1,27 +1,2 @@
-<p>App Component</p>
-<button directive1Test (click)="onAddVideo()">add Video</button>
-<button  directive1Test (click)="person1Unsubscribe()">Uns PersonA</button>
-<p>fin del tiktok</p>
- 
-<p [directive1Test]="color"
-   (outputTest)="test($event)"
-  >Ni primera directiva de atributo </p>
-
-
-<input type="checkbox" [(ngModel)]="sw"> ngIfMichael
-
-<div *ngIfMichael="sw"  (test)="test100($event)">
-
-  <p>my own strcutural directive </p>
-
-</div>
-<div #myDiv1>Div para el ejercicio de cambiar borde.</div>
-
-<p>{{myDiv1}}</p>
-
-<michael-comp #myCompMichael></michael-comp>
-
-<input type="text" #myDiv2 value="asdasd">
-<p>{{myDiv2}}</p>
-
-<button (click)="onShowLocalVars()">show local vars</button>
+<p>App </p>
+<app-admin1></app-admin1>
