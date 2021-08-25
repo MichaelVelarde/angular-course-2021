@@ -23,23 +23,23 @@ export class AppComponent {
   @ViewChild('myCompMichael') myCompMichael: any;
 
   constructor(){
+    this.pure(2,3);
+    this.pure(10,2);
+    this.pure(5,5);
 
-    // PERSON A
-    this.personASub = this.tictock.pipe(
-      filter(s => s%2 === 0)
-    ).subscribe(v => {
-      console.log('PERSON A VIDEO', v);
-    });
-    // PERSON B
-    this.tictock.pipe(
-      delay(4000)
-    ).subscribe(v => {
-      console.log('PERSON B VIDEO', v);
-    });
-    // PERSON C
-    this.tictock.subscribe(v => {
-      console.log('PERSON C VIDEO', v);
-    });
+    this.impure(2,3);
+    this.impure(10,2);
+    this.impure(5,5);
+    
+  }
+  pure(a:number , b :number){
+    console.log(a+b)
+    return a +b;
+  }
+  impure(a:number , b :number){
+    const aux = Math.random();
+    console.log(a+ b + a)
+    return a +b + aux;
   }
   onAddVideo(){
     this.video ++
