@@ -12,6 +12,7 @@ import { HomeModule } from './pages/home/home.module';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { Test3Component } from './test3/test3.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { Test3Component } from './test3/test3.component';
     HomeModule,
     AdminModule,
     BuyModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
