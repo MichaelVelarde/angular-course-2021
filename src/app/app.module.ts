@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from "@angular/router";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const routes: Routes = [   {path: '', redirectTo: 'login', pathMatch: 'full'},
 {path: 'login', loadChildren:
@@ -19,6 +20,7 @@ const routes: Routes = [   {path: '', redirectTo: 'login', pathMatch: 'full'},
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
