@@ -1,5 +1,6 @@
 import { Component,ElementRef, ViewChild } from '@angular/core';
 import {BehaviorSubject, of, Subscription} from 'rxjs';
+import {Router} from "@angular/router";
 import { filter, map, delay } from 'rxjs/operators';
 
 @Component({
@@ -12,6 +13,7 @@ export class AppComponent {
   myStatus = 'my status';
 
   sw = true;
+  id:number = 3;
   data = [1,2,3,4,5,6,7,8,9];
 
   color: string;
@@ -23,7 +25,7 @@ export class AppComponent {
   @ViewChild('myDiv2') myDiv2: ElementRef;
   @ViewChild('myCompMichael') myCompMichael: any;
 
-  constructor(){
+  constructor(private router: Router){
     this.pure(2,3);
     this.pure(10,2);
     this.pure(5,5);
@@ -32,6 +34,12 @@ export class AppComponent {
     this.impure(10,2);
     this.impure(5,5);
     
+  }
+  onGoView2FromTS():void{
+    this.router.navigate(
+      ['view2', this.id, 'sub', 33333],
+      {queryParams: {name: 'maria', lastName: 'gutierrez'}}
+    )
   }
   pure(a:number , b :number){
     console.log(a+b)

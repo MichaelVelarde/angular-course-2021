@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-view2',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class View2Component implements OnInit {
 
-  constructor() { }
+  constructor(private router: ActivatedRoute) {
 
-  ngOnInit() {
+  }
+
+  ngOnInit(): void {
+    console.log('SNAPSHOT', this.router.snapshot.params)
+    console.log('SNAPSHOT QP', this.router.snapshot.queryParams)
   }
 
 }
