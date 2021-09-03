@@ -15,8 +15,8 @@ const routes: Routes = [   {path: '', redirectTo: 'login', pathMatch: 'full'},
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,

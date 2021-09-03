@@ -7,7 +7,6 @@ import {NgbButtonsModule, NgbModule, NgbToastModule} from "@ng-bootstrap/ng-boot
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
-
 const routes: Routes = [
   {path: '', component: LoginComponent}
 ]
@@ -18,9 +17,9 @@ const routes: Routes = [
   ],
   imports: [
     MatProgressSpinnerModule,
-    MatSliderModule,
     NgbToastModule,
     NgbButtonsModule,
+    MatSliderModule,
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes)
