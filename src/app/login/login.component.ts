@@ -60,6 +60,17 @@ export class LoginComponent implements OnInit {
       res => console.log(res))
   }
 
+  patch() {
+    this.publicationService.patch('p0001',{
+      "description": "update from frontend patch",
+    } ).subscribe(
+      res => console.log(res))
+  }
+
+  onSubmitTemplate(values:any){
+    console.log('VALUES: ', values)
+  }
+
 
 
 }
