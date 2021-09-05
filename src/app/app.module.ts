@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SingletonService} from "./login/services/singleton.service";
 
 const routes: Routes = [   {path: '', redirectTo: 'login', pathMatch: 'full'},
 {path: 'login', loadChildren:
