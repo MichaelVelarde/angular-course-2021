@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FirebaseService {
-  url="https://second-test-449fb-default-rtdb.firebaseio.com/"
+  url="https://bitcoin-test-a0874-default-rtdb.firebaseio.com/"
   constructor(private http: HttpClient) { }
 
   public getAllWallets():Observable<any>{
@@ -17,11 +17,11 @@ export class FirebaseService {
   }
   public delete(id: string): Observable<any>{
     return this.http.delete(
-      `${this.url}/transactions/${id}.json`);
+      `${this.url}transactions/${id}.json`);
   }
   public patch(id: string, body: any): Observable<any>{
     return this.http.patch(
-      `${this.url}/wallets/${id}.json`,
+      `${this.url}wallets/${id}.json`,
       body);
   }
 }
