@@ -14,7 +14,7 @@ export class BitcoinComponent{
 
   constructor() {}
   colorWallet(){
-    if(this.eth + this.btc > 10){
+    if(this.eth + this.btc > 5){
       return true;
     }
     else return false;

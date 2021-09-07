@@ -16,13 +16,14 @@
 </app-bitcoin>
 </div>
 </div>
+<div *ngIf=allTransactionDone() [style.background]="'red'"> There are not transactions </div>
 <p>Transactions</p>
 <div style="display: flex; flex-direction: row">
 <div *ngFor="let transactions of transactions">
-  <app-transaction [id]="transactions[0]" [date]="transactions[1]['date']" [from]="transactions[1]['from']"  [to]="transactions[1]['to']"  [quantity]="transactions[1]['quantity']"  [moneyType]="transactions[1]['moneyType']"  [mineType]="transactions[1]['mineType']"  [miner]="transactions[1]['miner']" >
+  <app-transaction [id]="transactions[0]" [date]="(transactions[1]['date'] | strToDate)|date:'dd/MM/yyyy'" [from]="transactions[1]['from']"  [to]="transactions[1]['to']"  [quantity]="transactions[1]['quantity']"  [moneyType]="transactions[1]['moneyType']"  [mineType]="transactions[1]['mineType']"  [miner]="transactions[1]['miner']" >
   <button
   [disabled]="transactions[1]['mineType'] === 'PoS' &&
-  transactions[1]['miner'] < 20"
+  transactions[1]['miner'] <= 20"
 (click)="onMine(transactions[0])">
   mine
 </button>

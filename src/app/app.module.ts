@@ -16,6 +16,7 @@ import { Test2Component } from './test2/test2.component';
 import { Test3Component } from './test3/test3.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TransComponent } from './transaction/transaction.component';
+import { StrToDatePipe } from './str-to-date.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TransComponent } from './transaction/transaction.component';
     TransComponent,
     Directive1Directive,
     Directive2Directive,
-    BitcoinComponent
+    BitcoinComponent,
+    StrToDatePipe
     
   ],
   imports: [

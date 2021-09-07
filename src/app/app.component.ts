@@ -19,7 +19,7 @@ export class AppComponent {
   }
   getDataWallets(data) {
     this.wallets = Object.entries(data);
-    console.log(data);
+    console.log(data );
   }
   getDataTrans(data) {
     this.transactions = Object.entries(data);
@@ -41,29 +41,33 @@ export class AppComponent {
     return this.totalBTC;
   }
   allTransactionDone() {
-    return false;
+    for (let i = 0; i < this.transactions.length; i++) {
+      if(this.transactions[i][1]['minetype'] != 'PoS' && this.transactions[i][1]['miner'] > 20)
+        return false;
+      }
+    return true;
   }
   delete(id){
     this.firebase.delete(id).subscribe(
-      res => console.log(res))
+      res => console.log(res, 'Para ver los cambios porfavor resetee la pagina'))
   }
   patch(id, monto, tipo) {
     if (tipo === 'eth')
       this.firebase.patch(id,{
-        tipo : monto,
+        "eth" : monto,
       } ).subscribe(
-        res => console.log(res))
+        res => console.log(res, 'Para ver los cambios porfavor resetee la pagina'))
     else
       this.firebase.patch(id,{
         "btc": monto,
       } ).subscribe(
-        res => console.log(res))
+        res => console.log(res, 'Para ver los cambios porfavor resetee la pagina'))
   }
   onMine(idTrans){
     for (let i = 0; i < this.transactions.length; i++) {
-      if(idTrans === this.transactions[i][0])
+      if(idTrans === this.transactions[i][0]){
       for (let i2 = 0; i2 < this.wallets.length; i2++) {
-        if (this.wallets[i2][1]['wallet'] === this.transactions[i][1]['from'])
+        if (this.wallets[i2][1]['wallet'] === this.transactions[i][1]['from']){
           var Fromidwallet  = this.wallets[i2][0];
           if (this.transactions[i][1]['moneyType'] === 'eth') {
             var montoFrom  = this.wallets[i2][1]['eth'];
@@ -74,10 +78,10 @@ export class AppComponent {
             var tipoFrom = 'btc';
             montoFrom -= this.transactions[i][1]['quantity'];
           }
-          
+        }  
       }
       for (let i2 = 0; i2 < this.wallets.length; i2++) {
-        if (this.wallets[i2][1]['wallet'] === this.transactions[i][1]['from'])
+        if (this.wallets[i2][1]['wallet'] === this.transactions[i][1]['to']){
           var Toidwallet  = this.wallets[i2][0];
           if (this.transactions[i][1]['moneyType'] === 'eth') {
             var montoTo  = this.wallets[i2][1]['eth'];
@@ -88,10 +92,13 @@ export class AppComponent {
             var tipoTo = 'btc';
             montoTo += this.transactions[i][1]['quantity'];
           }
-          
       }
-        
-        
+    }
+      
+     this.patch(Fromidwallet , montoFrom , tipoFrom);
+     this.patch(Toidwallet , montoTo , tipoTo);
+     this.delete(idTrans);
+    } 
       
     }
 
