@@ -5,15 +5,31 @@
       Connect with friends and the world around you on Facebook.
     </p>
   </div>
+
   <div class="right col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
     <mat-card class="form">
-      <mat-card-content style="display: flex; flex-direction: column;">
-        <input type="text" placeholder="Email address or phone number">
-        <input type="password" placeholder="Password">
+
+      <mat-card-content>
+        <form #form="ngForm"
+              (ngSubmit)="login(form)"
+              style="display: flex; flex-direction: column;">
+          <input type="text"
+                 name="email"
+                 ngModel
+                 placeholder="Email address">
+          <input type="password"
+                 name="password"
+                 ngModel
+                 placeholder="Password">
         <button class="login-btn">Log In</button>
         <a href="">Forgot Password?</a>
+
+        </form>
+
         <div class="underline"></div>
-        <button class="create-new-account-btn">Create New Account</button>
+        <button class="create-new-account-btn" type="submit">
+          Create New Account
+        </button>
       </mat-card-content>
     </mat-card>
     <p><a href="">Create a Page</a> for celebrity, band or business.</p>
