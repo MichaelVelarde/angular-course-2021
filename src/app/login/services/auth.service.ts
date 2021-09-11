@@ -14,5 +14,8 @@ export class AuthService {
   public login(body:any):Observable<any>{
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body);
   }
+  public signUp(body:any){
+    return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`, body);
+  }
 
 }
