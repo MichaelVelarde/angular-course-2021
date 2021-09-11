@@ -37,7 +37,6 @@ const routes: Routes = [
     MatDialogModule
   ],
   providers: [
-    AuthService
   ]
 })
 export class LoginModule { }

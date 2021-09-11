@@ -28,6 +28,13 @@ export class AuthService {
     localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
   }
+  public getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  public getUserId(): string | null{
+    return localStorage.getItem('userId');
+  }
 
 
 
