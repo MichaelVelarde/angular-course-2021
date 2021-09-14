@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ApplicationRef, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -22,8 +22,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CoreModule
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent],
 })
 
 export class AppModule {
+  public ngDoBootstrap(appRef: ApplicationRef): void {
+    if (document.querySelector('app-root')) {
+      appRef.bootstrap(AppComponent);
+    }
+  }
 }
